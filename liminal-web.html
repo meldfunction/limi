@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Liminal Web — Limicelia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1e1a16;--ink-mid:#3a3530;--ink-soft:#5a5248;--ink-muted:#7a7068;--ink-faint:#9a9088;--rule:#cec6b8;--rule-lt:#e8e2da;--paper:#f8f4ee;--paper-w:#f2ede4;--paper-d:#ede8e0;--green:#4a6845;--green-lt:#8aaa84;--night:#14110e;--night-mid:#242018;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#e8e2d8;font-family:'Jost',sans-serif;color:var(--ink-soft);min-height:100vh;padding:28px;}
+.page-frame{background:var(--paper);border:1px solid var(--rule);box-shadow:0 2px 40px rgba(0,0,0,.10),0 0 0 1px rgba(0,0,0,.04);position:relative;max-width:1100px;margin:0 auto;}
+.page-frame::before{content:'';position:absolute;inset:8px;border:1px solid var(--rule-lt);pointer-events:none;z-index:0;}
+.masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:28px 40px 22px;border-bottom:1px solid var(--rule);position:relative;z-index:1;}
+.mast-left{font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
+.mast-center{text-align:center;padding:0 40px;}
+.mast-name{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--ink);letter-spacing:.12em;line-height:1;display:block;}
+.mast-rule{width:48px;height:1px;background:var(--rule);margin:7px auto;}
+.mast-tag{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);}
+.mast-right{text-align:right;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
+nav{border-bottom:1px solid var(--rule);padding:16px 40px;display:flex;gap:32px;justify-content:center;background:var(--paper-w);flex-wrap:wrap;}
+nav a{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s;}
+nav a:hover{color:var(--green);}
+nav a.active{color:var(--green);border-bottom:1px solid var(--green-lt);padding-bottom:2px;}
+.page-hero{padding:52px 80px 48px;border-bottom:1px solid var(--rule-lt);position:relative;z-index:1;}
+.page-eyebrow{font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;}
+.page-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:var(--ink);line-height:1.25;margin-bottom:20px;}
+.page-lede{font-size:clamp(.72rem,1.1vw,.82rem);line-height:1.95;font-weight:300;color:var(--ink-soft);max-width:680px;}
+.short-rule{width:36px;height:1px;background:var(--rule);margin:18px 0;}
+.body-section{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--rule-lt);position:relative;z-index:1;}
+.margin-col{padding:40px 20px 40px 40px;border-right:1px solid var(--rule-lt);}
+.margin-label{font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);}
+.text-col{padding:40px 60px 48px 48px;}
+.sec-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--rule);line-height:1;display:block;margin-bottom:8px;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.4vw,1.75rem);font-weight:300;color:var(--ink);line-height:1.35;margin-bottom:6px;}
+p{font-size:clamp(.68rem,1.05vw,.76rem);line-height:1.95;font-weight:300;color:var(--ink-soft);margin-bottom:1.2em;}
+p:last-child{margin-bottom:0;}
+h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink);margin-bottom:8px;font-weight:400;margin-top:28px;}
+h3:first-child{margin-top:0;}
+.slabel{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);margin:28px 0 14px;}
+.highlight{background:var(--paper-d);border-left:2px solid var(--green-lt);padding:18px 22px;margin:24px 0;font-size:clamp(.68rem,1vw,.75rem);line-height:1.9;color:var(--ink-soft);}
+.highlight strong{font-weight:500;color:var(--ink);display:block;margin-bottom:2px;}
+.inline-quote{border-top:1px solid var(--rule-lt);border-bottom:1px solid var(--rule-lt);padding:20px 0;margin:24px 0;}
+.iq-text{font-family:'Cormorant Garamond',serif;font-size:clamp(.9rem,1.4vw,1.05rem);font-style:italic;color:var(--ink-mid);line-height:1.7;font-weight:300;}
+.phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.phase{border:1px solid var(--rule-lt);background:var(--paper);padding:20px 22px;}
+.phase-num{font-size:.42rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-lt);margin-bottom:6px;}
+.phase-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);margin-bottom:8px;font-weight:400;}
+.phase-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;}
+.tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
+.tier{border:1px solid var(--rule-lt);background:var(--paper);padding:22px 24px;}
+.tier-label{font-size:.42rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-lt);margin-bottom:8px;}
+.tier-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);margin-bottom:10px;font-weight:400;}
+.tier-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;}
+.domain-list{display:flex;flex-direction:column;gap:2px;margin:20px 0;}
+.domain{border:1px solid var(--rule-lt);background:var(--paper);padding:20px 24px;}
+.domain-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);font-weight:400;margin-bottom:6px;}
+.domain-tag{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-lt);margin-bottom:10px;}
+.domain-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;margin-bottom:10px;}
+.domain-range{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);}
+.web-tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0;}
+.web-tier{border:1px solid var(--rule-lt);background:var(--paper);padding:18px 16px;text-align:center;}
+.web-tier-letter{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--rule);line-height:1;margin-bottom:8px;}
+.web-tier-name{font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px;}
+.web-tier-body{font-size:clamp(.6rem,.88vw,.67rem);line-height:1.8;color:var(--ink-soft);font-weight:300;}
+.closing-block{background:var(--night);padding:60px 80px;text-align:center;position:relative;z-index:1;}
+.closing-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:300;color:#f8f4ee;line-height:1.3;margin-bottom:20px;}
+.closing-p{font-size:clamp(.68rem,1.05vw,.76rem);line-height:1.95;font-weight:300;color:#b8b0a0;max-width:560px;margin:0 auto 28px;}
+.cta-primary{display:inline-block;background:var(--green);color:#fff;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:13px 28px;text-decoration:none;margin:0 8px;}
+.cta-secondary{display:inline-block;border:1px solid #5a5248;color:#b8b0a0;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:12px 28px;text-decoration:none;margin:0 8px;}
+.sec-divider{border:none;border-top:1px solid var(--rule-lt);margin:0;position:relative;z-index:1;}
+@media(max-width:800px){
+  body{padding:12px;}
+  .masthead{grid-template-columns:1fr;text-align:center;gap:12px;}
+  .mast-right{text-align:center;}
+  .page-hero{padding:36px 28px;}
+  .body-section{grid-template-columns:1fr;}
+  .margin-col{display:none;}
+  .text-col{padding:32px 24px;}
+  .phase-grid,.tier-grid{grid-template-columns:1fr;}
+  .web-tier-grid{grid-template-columns:1fr 1fr;}
+  .closing-block{padding:44px 28px;}
+}
+</style>
+</head>
+<body>
+<div class="page-frame">
+
+  <header class="masthead">
+    <div class="mast-left">Regenerative Org Transformation<br>Accompaniment &amp; Network</div>
+    <div class="mast-center">
+      <a href="index.html" style="text-decoration:none;">
+        <span class="mast-name">Limicelia</span>
+        <div class="mast-rule"></div>
+        <div class="mast-tag">Day One &nbsp;·&nbsp; 2026</div>
+      </a>
+    </div>
+    <div class="mast-right">Fiscally Sponsored<br>Inquiring Systems Institute<br>501(c)(3)</div>
+  </header>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="our-approach.html">Our Approach</a>
+    <a href="services.html">Services</a>
+    <a href="the-model.html">The Model</a>
+    <a href="regenerative-tech-ai.html">Regenerative Tech &amp; AI</a>
+    <a href="liminal-web.html" class="active">The Liminal Web</a>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-eyebrow">Limicelia &middot; The Liminal Web</div>
+    <h1 class="page-h1">A living network of<br><em>threshold practitioners.</em></h1>
+    <div class="short-rule"></div>
+    <p class="page-lede">The Liminal Web is the connective tissue of Limicelia's work — a distributed network of practitioners who inhabit threshold spaces between disciplines, sectors, and what is and what wants to emerge. Not a roster. Not a contractor pool. A web of relationships held by shared practice and mutual accountability.</p>
+  </div>
+
+
+  <hr class="sec-divider">
+  <div class="body-section" id="what">
+    <div class="margin-col"><span class="margin-label">What It Is</span></div>
+    <div class="text-col">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Not a roster.<br><em>A web of relationships.</em></h2>
+      <div class="short-rule"></div>
+      <p>The Liminal Web is the connective tissue of Limicelia's work — a living network of practitioners who inhabit threshold spaces between disciplines, between sectors, between what is and what wants to emerge.</p>
+      <div class="inline-quote">
+        <p class="iq-text">Liminal: because most important work happens in the between — in transitions, threshold moments, the space where old forms are composting and new ones haven't yet solidified. Web: because mycelial logic governs here — distributed, resilient, no single center, nutrients flowing where needed, strength emerging from connection not hierarchy.</p>
+      </div>
+      <p>Not a contractor pool. Not a vendor list. Not a certification program. When you work with Limicelia, you enter this web of relationships — practitioners who share practice, accountability, and the patient work of organizational restoration. Trust is built inside the web before any client engagement happens. That's not gatekeeping. It's how quality gets protected without hierarchy.</p>
+    </div>
+  </div>
+
+  <hr class="sec-divider">
+  <div class="body-section" id="structure">
+    <div class="margin-col"><span class="margin-label">Structure</span></div>
+    <div class="text-col">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Four concentric<br><em>circles of participation.</em></h2>
+      <div class="short-rule"></div>
+      <div class="tier-grid">
+        <div class="tier">
+          <div class="tier-label">Core Stewards &middot; 2&ndash;3</div>
+          <div class="tier-name">$120k draw + profit share</div>
+          <div class="tier-body">Hold the web, steward relationships, protect values under market pressure. Full-time. No exit incentive — ownership is stewardship. Changed by every engagement.</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">Active Practitioners &middot; 5&ndash;8</div>
+          <div class="tier-name">100% of agreed hourly rate</div>
+          <div class="tier-body">Regularly deployed. Governance voice. Co-own the methodology, shape the commons. 1&ndash;3 engagements per year. Full participants in the web — not contractors called in for projects.</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">Specialist Associates &middot; 8&ndash;12</div>
+          <div class="tier-name">Craft-specific depth</div>
+          <div class="tier-body">Specific expertise called in for particular engagements. 1&ndash;2 per year. Contribute to commons without full governance. The web's depth where depth is needed.</div>
+        </div>
+        <div class="tier">
+          <div class="tier-label">Collaborator Pool &middot; 5&ndash;10</div>
+          <div class="tier-name">Doorway into deeper membership</div>
+          <div class="tier-body">Occasional, project-specific participation. First engagements. Testing fit in both directions. No pressure to go deeper; some become Active Practitioners over time.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-divider">
+  <div class="body-section" id="development">
+    <div class="margin-col"><span class="margin-label">Development</span></div>
+    <div class="text-col">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Five tiers of<br><em>practitioner development.</em></h2>
+      <div class="short-rule"></div>
+      <p>Practitioners grow through a living development ecosystem, not training programs. Each tier builds the ground the next requires. The progression is not certification — it is accumulating the actual capacities that hard organizational work demands.</p>
+      <div class="web-tier-grid">
+        <div class="web-tier">
+          <div class="web-tier-letter">A</div>
+          <div class="web-tier-name">Being &amp; Presence</div>
+          <div class="web-tier-body">Starter Cultures circles. Free. Practitioner's own ground — capacity to stay present in difficulty. Not soft work. Prerequisite for everything else.</div>
+        </div>
+        <div class="web-tier">
+          <div class="web-tier-letter">B</div>
+          <div class="web-tier-name">Relational Craft</div>
+          <div class="web-tier-body">Intentional Society + Starter Cultures. Minimal fee. Being present with another's reality without merging, distancing, or managing. T-Group, Circling, Bohm Dialogue.</div>
+        </div>
+        <div class="web-tier">
+          <div class="web-tier-letter">C</div>
+          <div class="web-tier-name">Organizational Craft</div>
+          <div class="web-tier-body">Starter Cultures, Limicelia-sponsored. Specific methods mapped to service domains. Sociocracy Sandbox, Facilitation Dojo, Conflict Navigation Practice.</div>
+        </div>
+        <div class="web-tier">
+          <div class="web-tier-letter">D</div>
+          <div class="web-tier-name">Wisdom Traditions</div>
+          <div class="web-tier-body">Curated by Limicelia. Woven throughout all tiers. Epistemological ground — the wells practitioners draw from, not frameworks they apply.</div>
+        </div>
+      </div>
+      <div class="highlight" style="margin-top:8px;">
+        <strong>Tier E: Liminal Web Integration</strong>
+        Invitation, not graduation. Practitioners become visible through their practice in Starter Cultures and Intentional Society. Trust builds before any first engagement. No application. No interview. Known through practice before invited.
+      </div>
+    </div>
+  </div>
+
+  <hr class="sec-divider">
+  <div class="body-section" id="ecosystem">
+    <div class="margin-col"><span class="margin-label">Ecosystem</span></div>
+    <div class="text-col">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">The web within<br><em>the wider field.</em></h2>
+      <div class="short-rule"></div>
+      <p>The Liminal Web doesn't exist in isolation. It sits inside a network of organizations that share aligned practice and values — each playing a different role in the ecosystem Limicelia is trying to help grow.</p>
+      <p><strong>Present of Work</strong> &mdash; Field context and values. A translocal network and space of inquiry for post-growth alternatives to extractive work systems. No entity; pure field.</p>
+      <p><strong>Starter Cultures</strong> &mdash; Inner cultivation home. Free practice circles. The ground-level community where Tier A and B development happens and where practitioners become known through practice.</p>
+      <p><strong>Intentional Society</strong> &mdash; Relational craft and adult development. The container for T-Group, Circling, and interpersonal range work at Tier B.</p>
+      <p><strong>CrowdWork DC</strong> &mdash; Practitioner pipeline and dual-use platform. Bridges conventional and cooperative work contexts.</p>
+      <p><strong>Inquiring Systems Institute</strong> &mdash; Fiscal sponsor and 501(c)(3) structure. Provides legal, accounting, HR, and administrative infrastructure while keeping Limicelia mission-accountable and grant-eligible.</p>
+    </div>
+  </div>
+
+
+  <div class="closing-block">
+    <h2 class="closing-h">Want to find your<br><em>place in the web?</em></h2>
+    <p class="closing-p">The pathway into the Liminal Web begins in Starter Cultures and Intentional Society — practice spaces where trust is built before any formal engagement. Start there.</p>
+    <a href="mailto:hello@limicelia.org" class="cta-primary">Start a conversation</a>
+    <a href="index.html" class="cta-secondary">Back to home</a>
+  </div>
+
+</div>
+</body>
+</html>
