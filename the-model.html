@@ -15,24 +15,24 @@ body{background:#e8e2d8;font-family:'Jost',sans-serif;color:var(--ink-soft);min-
 .page-frame{background:var(--paper);border:1px solid var(--rule);box-shadow:0 2px 40px rgba(0,0,0,.10),0 0 0 1px rgba(0,0,0,.04);position:relative;max-width:1100px;margin:0 auto;}
 .page-frame::before{content:'';position:absolute;inset:8px;border:1px solid var(--rule-lt);pointer-events:none;z-index:0;}
 .masthead{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:28px 40px 22px;border-bottom:1px solid var(--rule);position:relative;z-index:1;}
-.mast-left{font-size:.48rem;letter-spacing:.35em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
+.mast-left{font-size:.5625rem;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
 .mast-center{text-align:center;padding:0 40px;}
 .mast-name{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:var(--ink);letter-spacing:.12em;line-height:1;display:block;}
 .mast-rule{width:48px;height:1px;background:var(--rule);margin:7px auto;}
-.mast-tag{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);}
-.mast-right{text-align:right;font-size:.48rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
+.mast-tag{font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);}
+.mast-right{text-align:right;font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);line-height:1.9;}
 nav{border-bottom:1px solid var(--rule);padding:16px 40px;display:flex;gap:32px;justify-content:center;background:var(--paper-w);flex-wrap:wrap;}
-nav a{font-size:.5rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s;}
+nav a{font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);text-decoration:none;transition:color .2s;}
 nav a:hover{color:var(--green);}
 nav a.active{color:var(--green);border-bottom:1px solid var(--green-lt);padding-bottom:2px;}
 .page-hero{padding:52px 80px 48px;border-bottom:1px solid var(--rule-lt);position:relative;z-index:1;}
-.page-eyebrow{font-size:.46rem;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;}
+.page-eyebrow{font-size:.5625rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:18px;}
 .page-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:var(--ink);line-height:1.25;margin-bottom:20px;}
 .page-lede{font-size:clamp(.72rem,1.1vw,.82rem);line-height:1.95;font-weight:300;color:var(--ink-soft);max-width:680px;}
 .short-rule{width:36px;height:1px;background:var(--rule);margin:18px 0;}
 .body-section{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--rule-lt);position:relative;z-index:1;}
 .margin-col{padding:40px 20px 40px 40px;border-right:1px solid var(--rule-lt);}
-.margin-label{font-size:.42rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);}
+.margin-label{font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);writing-mode:vertical-rl;text-orientation:mixed;transform:rotate(180deg);}
 .text-col{padding:40px 60px 48px 48px;}
 .sec-num{font-family:'Cormorant Garamond',serif;font-size:3rem;font-weight:300;color:var(--rule);line-height:1;display:block;margin-bottom:8px;}
 .sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.4vw,1.75rem);font-weight:300;color:var(--ink);line-height:1.35;margin-bottom:6px;}
@@ -40,49 +40,78 @@ p{font-size:clamp(.68rem,1.05vw,.76rem);line-height:1.95;font-weight:300;color:v
 p:last-child{margin-bottom:0;}
 h3{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--ink);margin-bottom:8px;font-weight:400;margin-top:28px;}
 h3:first-child{margin-top:0;}
-.slabel{font-size:.44rem;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-faint);margin:28px 0 14px;}
+.slabel{font-size:.5625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin:28px 0 14px;}
 .highlight{background:var(--paper-d);border-left:2px solid var(--green-lt);padding:18px 22px;margin:24px 0;font-size:clamp(.68rem,1vw,.75rem);line-height:1.9;color:var(--ink-soft);}
 .highlight strong{font-weight:500;color:var(--ink);display:block;margin-bottom:2px;}
 .inline-quote{border-top:1px solid var(--rule-lt);border-bottom:1px solid var(--rule-lt);padding:20px 0;margin:24px 0;}
 .iq-text{font-family:'Cormorant Garamond',serif;font-size:clamp(.9rem,1.4vw,1.05rem);font-style:italic;color:var(--ink-mid);line-height:1.7;font-weight:300;}
 .phase-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
 .phase{border:1px solid var(--rule-lt);background:var(--paper);padding:20px 22px;}
-.phase-num{font-size:.42rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-lt);margin-bottom:6px;}
+.phase-num{font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-lt);margin-bottom:6px;}
 .phase-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);margin-bottom:8px;font-weight:400;}
 .phase-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;}
 .tier-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0;}
 .tier{border:1px solid var(--rule-lt);background:var(--paper);padding:22px 24px;}
-.tier-label{font-size:.42rem;letter-spacing:.24em;text-transform:uppercase;color:var(--green-lt);margin-bottom:8px;}
+.tier-label{font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-lt);margin-bottom:8px;}
 .tier-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--ink);margin-bottom:10px;font-weight:400;}
 .tier-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;}
 .domain-list{display:flex;flex-direction:column;gap:2px;margin:20px 0;}
 .domain{border:1px solid var(--rule-lt);background:var(--paper);padding:20px 24px;}
 .domain-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--ink);font-weight:400;margin-bottom:6px;}
-.domain-tag{font-size:.42rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green-lt);margin-bottom:10px;}
+.domain-tag{font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green-lt);margin-bottom:10px;}
 .domain-body{font-size:clamp(.62rem,.92vw,.7rem);line-height:1.85;color:var(--ink-soft);font-weight:300;margin-bottom:10px;}
-.domain-range{font-size:.42rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);}
+.domain-range{font-size:.5625rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);}
 .web-tier-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:24px 0;}
 .web-tier{border:1px solid var(--rule-lt);background:var(--paper);padding:18px 16px;text-align:center;}
 .web-tier-letter{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--rule);line-height:1;margin-bottom:8px;}
-.web-tier-name{font-size:.44rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px;}
+.web-tier-name{font-size:.5625rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mid);margin-bottom:8px;}
 .web-tier-body{font-size:clamp(.6rem,.88vw,.67rem);line-height:1.8;color:var(--ink-soft);font-weight:300;}
 .closing-block{background:var(--night);padding:60px 80px;text-align:center;position:relative;z-index:1;}
 .closing-h{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,2.8vw,2.1rem);font-weight:300;color:#f8f4ee;line-height:1.3;margin-bottom:20px;}
 .closing-p{font-size:clamp(.68rem,1.05vw,.76rem);line-height:1.95;font-weight:300;color:#b8b0a0;max-width:560px;margin:0 auto 28px;}
-.cta-primary{display:inline-block;background:var(--green);color:#fff;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:13px 28px;text-decoration:none;margin:0 8px;}
-.cta-secondary{display:inline-block;border:1px solid #5a5248;color:#b8b0a0;font-size:.5rem;letter-spacing:.22em;text-transform:uppercase;padding:12px 28px;text-decoration:none;margin:0 8px;}
+.cta-primary{display:inline-block;background:var(--green);color:#fff;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;padding:13px 28px;text-decoration:none;margin:0 8px;}
+.cta-secondary{display:inline-block;border:1px solid #5a5248;color:#b8b0a0;font-size:.6875rem;letter-spacing:.18em;text-transform:uppercase;padding:12px 28px;text-decoration:none;margin:0 8px;}
 .sec-divider{border:none;border-top:1px solid var(--rule-lt);margin:0;position:relative;z-index:1;}
 @media(max-width:800px){
   body{padding:12px;}
-  .masthead{grid-template-columns:1fr;text-align:center;gap:12px;}
-  .mast-right{text-align:center;}
+  .page-frame::before{inset:5px;}
+  .masthead{grid-template-columns:1fr;text-align:center;gap:8px;padding:20px 24px 16px;}
+  .mast-left,.mast-right{display:none;}
+  .mast-center{padding:0;}
+  .mast-name{font-size:1.8rem;}
+  nav{gap:12px 20px;padding:12px 20px;}
+  nav a{font-size:.6875rem;letter-spacing:.14em;}
   .page-hero{padding:36px 28px;}
   .body-section{grid-template-columns:1fr;}
   .margin-col{display:none;}
-  .text-col{padding:32px 24px;}
+  .text-col{padding:32px 28px;}
   .phase-grid,.tier-grid{grid-template-columns:1fr;}
   .web-tier-grid{grid-template-columns:1fr 1fr;}
   .closing-block{padding:44px 28px;}
+  .domain{padding:16px 18px;}
+}
+@media(max-width:480px){
+  body{padding:4px;}
+  .page-frame::before{inset:3px;}
+  .masthead{padding:14px 16px 12px;}
+  .mast-name{font-size:1.4rem;}
+  nav{gap:8px 14px;padding:10px 14px;}
+  nav a{font-size:.6875rem;letter-spacing:.1em;}
+  .page-hero{padding:28px 20px;}
+  .page-h1{font-size:clamp(1.5rem,7vw,2rem);}
+  .text-col{padding:24px 16px;}
+  .web-tier-grid{grid-template-columns:1fr;}
+  .closing-block{padding:32px 20px;}
+  .closing-h{font-size:clamp(1.3rem,6vw,1.6rem);}
+  .cta-primary,.cta-secondary{display:block;text-align:center;margin:6px 0;}
+  .highlight{padding:14px 16px;}
+  .domain{padding:14px 16px;}
+  .phase,.tier{padding:16px 18px;}
+  p{font-size:clamp(.84rem,3.5vw,.94rem);}
+  .sec-title{font-size:clamp(1.3rem,6vw,1.7rem);}
+  .sec-num{font-size:2.4rem;}
+  .iq-text{font-size:clamp(.88rem,3.5vw,1rem);}
+  .closing-p{font-size:clamp(.84rem,3.5vw,.94rem);}
 }
 </style>
 </head>
@@ -95,19 +124,18 @@ h3:first-child{margin-top:0;}
       <a href="index.html" style="text-decoration:none;">
         <span class="mast-name">Limicelia</span>
         <div class="mast-rule"></div>
-        <div class="mast-tag">Day One &nbsp;·&nbsp; 2026</div>
+        <div class="mast-tag">Regenerative Organizational Transformation</div>
       </a>
     </div>
-    <div class="mast-right">Fiscally Sponsored<br>Inquiring Systems Institute<br>501(c)(3)</div>
+    <div class="mast-right">Accompaniment &amp; Network</div>
   </header>
 
   <nav>
     <a href="index.html">Home</a>
-    <a href="our-approach.html">Our Approach</a>
+    <a href="our-approach.html">How We Work</a>
     <a href="services.html">Services</a>
     <a href="the-model.html" class="active">The Model</a>
-    <a href="regenerative-tech-ai.html">Regenerative Tech &amp; AI</a>
-    <a href="liminal-web.html">The Liminal Web</a>
+    <a href="liminal-web.html">The Network</a>
   </nav>
 
   <div class="page-hero">
@@ -125,12 +153,12 @@ h3:first-child{margin-top:0;}
       <span class="sec-num">01</span>
       <h2 class="sec-title">Mission and revenue<br><em>are the same loop.</em></h2>
       <div class="short-rule"></div>
-      <p>Every engagement follows commons logic: fees paid by well-resourced organizations fund full accompaniment for organizations that cannot pay. This is not philanthropy — it is how the model works. The loop is self-reinforcing: solidarity-economy organizations transform, their stories travel, referrals grow, no cold outreach needed.</p>
+      <p>Every engagement follows commons logic — a shared fund that redistributes resources so well-resourced organizations fund full accompaniment for those who cannot pay. This is not philanthropy — it is how the model works. The loop is self-reinforcing: solidarity-economy organizations transform, their stories travel, referrals grow, no cold outreach needed.</p>
       <div class="highlight">
         <strong>The four-step flywheel</strong>
-        Anchor client engages at market rate &rarr; 20% flows to commons pool &rarr; solidarity org transforms (real outcomes, real story) &rarr; story travels, referrals grow. Mission and revenue are not parallel streams. They are the same loop.
+        Anchor client engages &rarr; surplus flows to commons pool &rarr; solidarity org transforms (real outcomes, real story) &rarr; story travels, referrals grow. Mission and revenue are not parallel streams. They are the same loop.
       </div>
-      <p><strong>Steady state commitment:</strong> 15 practitioners, 30 clients, $1.4M revenue. Written into the co-founder agreement before we started. Growth is a tool, not a goal. When surplus exists, it becomes access and practitioner vitality — not retained earnings or expansion plans.</p>
+      <p>We are a post-growth organization — designed to reach sustainable scale and stay there — by design. We defined enough before we started — growth is a tool, not a goal. When surplus exists, it becomes access and practitioner vitality — not retained earnings or expansion plans.</p>
     </div>
   </div>
 
@@ -144,24 +172,24 @@ h3:first-child{margin-top:0;}
       <p>The tier structure is not sliding scale as charity — it is structural redistribution. Well-resourced clients are not doing Limicelia a favor by paying full rate. They are participating in a commons logic that generates the field's capacity for equitable access.</p>
       <div class="tier-grid">
         <div class="tier">
-          <div class="tier-label">Tier 1 &middot; High-Margin Clients</div>
+          <div class="tier-label">Tier 1 · Anchor Clients</div>
           <div class="tier-name">Tech companies, B-Corps, well-resourced for-profits</div>
-          <div class="tier-body">Fee range: $150&ndash;300k. Commons tax: 50% of margin above base rate &mdash; generating $35&ndash;70k per engagement. Example: tech company pays $200k for AI transformation &rarr; $70k funds two Tier 4 worker co-op projects.<br><br><em>Your transformation funds regenerative work in the solidarity economy.</em></div>
+          <div class="tier-body">Market-rate engagement. A portion of surplus above base rate flows to the commons pool — directly funding solidarity-economy work.<br><br><em>Your transformation funds regenerative work across the field.</em></div>
         </div>
         <div class="tier">
-          <div class="tier-label">Tier 2 &middot; Mission-Aligned Organizations</div>
+          <div class="tier-label">Tier 2 · Mission-Aligned Organizations</div>
           <div class="tier-name">Foundations, funder networks, established nonprofits</div>
-          <div class="tier-body">Fee range: $75&ndash;150k. Commons tax: 30% of margin &mdash; generating $10&ndash;25k per engagement. Example: foundation pays $120k for governance redesign &rarr; $12k into commons pool.<br><br><em>Your partnership extends the ecosystem.</em></div>
+          <div class="tier-body">Full-engagement accompaniment. Surplus contributes to the commons pool, extending access across the ecosystem.<br><br><em>Your partnership extends the ecosystem.</em></div>
         </div>
         <div class="tier">
-          <div class="tier-label">Tier 3 &middot; Core Mission Sector</div>
+          <div class="tier-label">Tier 3 · Core Mission Sector</div>
           <div class="tier-name">Nonprofits, public agencies, mid-size community orgs</div>
-          <div class="tier-body">Fee range: $25&ndash;75k on sliding scale. Commons tax: 10% when margin exists. Direct solidarity economy participants &mdash; their stories and capacity building strengthen the field.<br><br><em>You're part of the commons, not just a client.</em></div>
+          <div class="tier-body">Accessible engagement shaped by capacity. Direct solidarity economy participants — their stories and capacity building strengthen the field.<br><br><em>You're part of the commons, not just a client.</em></div>
         </div>
         <div class="tier">
-          <div class="tier-label">Tier 4 &middot; Solidarity Economy</div>
+          <div class="tier-label">Tier 4 · Solidarity Economy</div>
           <div class="tier-name">Worker co-ops, mutual aid networks, movement orgs</div>
-          <div class="tier-body">Client pays: $0&ndash;10k. Commons pool covers $20&ndash;50k gap, funded by Tier 1+2 commons tax and anchor retainers. These organizations are the mission made visible.<br><br><em>This is what redistribution looks like in practice.</em></div>
+          <div class="tier-body">Full accompaniment funded through the commons pool. Well-resourced organizations make this possible. These organizations are the mission made visible.<br><br><em>This is what redistribution looks like in practice.</em></div>
         </div>
       </div>
     </div>
@@ -174,32 +202,16 @@ h3:first-child{margin-top:0;}
       <span class="sec-num">03</span>
       <h2 class="sec-title">Post-growth<br><em>by design.</em></h2>
       <div class="short-rule"></div>
-      <p>Post-growth is a design choice to define "enough" before starting, not after success. These six principles are operational, not aspirational — written into governance structures and co-founder agreements before revenue began.</p>
-      <p><strong>1. Define enough first.</strong> Steady state: 15 practitioners, 30 clients, $1.4M. Growth is a tool. When targets are met, surplus becomes access — not expansion.</p>
+      <p>Post-growth is a design choice to define "enough" before starting, not after success. These six principles are operational, not aspirational — written into governance structures before revenue began.</p>
+      <p><strong>1. Define enough first.</strong> Growth is a tool. When targets are met, surplus becomes access — not expansion.</p>
       <p><strong>2. Circular revenue.</strong> Clients become case studies. Money moves in circles, not one direction. Success creates access rather than scale.</p>
       <p><strong>3. Commons infrastructure.</strong> Frameworks and tools return to the soil — open-source for the field, not held as proprietary.</p>
-      <p><strong>4. No exit.</strong> Ownership is stewardship. No payout event. No acquisition target. Fiscal sponsorship under ISI makes this structurally true.</p>
+      <p><strong>4. No exit.</strong> Ownership is stewardship. No payout event. No acquisition target.</p>
       <p><strong>5. Measure thriving.</strong> Practitioner vitality, not hours worked. Client restoration after we leave. Commons pool growth.</p>
       <p><strong>6. Resilience over efficiency.</strong> People doing sustained hard relational work need buffers, not optimization. Slack is capacity. Rest is infrastructure.</p>
     </div>
   </div>
 
-  <hr class="sec-divider">
-  <div class="body-section" id="practitioners">
-    <div class="margin-col"><span class="margin-label">Practitioner Economics</span></div>
-    <div class="text-col">
-      <span class="sec-num">04</span>
-      <h2 class="sec-title">Practitioners keep<br><em>100% of their rate.</em></h2>
-      <div class="short-rule"></div>
-      <p>We never mark up practitioner labor. What a client pays a practitioner is what that practitioner receives. The stewardship fee (20&ndash;25% of total project) covers relationship-holding by core stewards, quality assurance, commons coordination, and ISI fiscal administration — not a margin on people.</p>
-      <div class="highlight">
-        <strong>How money flows</strong>
-        Client fee paid to ISI &rarr; ISI takes 12% overhead &rarr; Practitioner paid 100% of agreed rate (typically 60&ndash;70% of project) &rarr; Coordination fee 8&ndash;10% &rarr; Commons pool: remaining surplus 10&ndash;20%.
-      </div>
-      <p>Core stewards draw $120k annually plus profit share. No equity, no exit incentive. Ownership is stewardship — which means the incentive structure points toward the work, not toward an exit event.</p>
-      <p>Limicelia operates as a fiscally sponsored project under <strong>Inquiring Systems Institute (ISI)</strong>, a 501(c)(3). Client fees are tax-deductible. Engagements are grant-eligible. Unburdened by standalone incorporation overhead and free to evolve as the work requires.</p>
-    </div>
-  </div>
 
 
   <div class="closing-block">
