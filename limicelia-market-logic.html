@@ -587,9 +587,83 @@
     .doc-meta { text-align: left; }
     .persona-table { display: block; overflow-x: auto; }
   }
+
+  
+
+  
+
+  
+
+  /* ── CANONICAL STICKY NAV ── */
+  #limicelia-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(14,13,10,0.97);
+    border-bottom: 1px solid rgba(242,234,216,0.09);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    height: 52px; display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem,5vw,5rem); gap: 1rem;
+  }
+  #limicelia-nav a { text-decoration: none; transition: color 0.2s; }
+  .lnav-brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
+  .lnav-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.88rem; font-weight: 300; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #f2ead8;
+  }
+  .lnav-brand-sub {
+    font-family: 'DM Mono', monospace; font-size: 0.48rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201,145,74,0.5);
+  }
+  .lnav-links {
+    display: flex; align-items: center; gap: 0; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .lnav-links::-webkit-scrollbar { display: none; }
+  .lnav-links li a {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,234,216,0.32); padding: 0 0.85rem;
+    height: 52px; display: flex; align-items: center;
+    border-right: 1px solid rgba(242,234,216,0.06); white-space: nowrap;
+  }
+  .lnav-links li:first-child a { border-left: 1px solid rgba(242,234,216,0.06); }
+  .lnav-links li a:hover { color: rgba(242,234,216,0.7); background: rgba(242,234,216,0.03); }
+  .lnav-links li a.lnav-active {
+    color: #c9914a; background: rgba(201,145,74,0.07); border-bottom: 2px solid #c9914a;
+  }
+  .lnav-site {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,145,74,0.4); flex-shrink: 0; white-space: nowrap;
+  }
+  .lnav-site:hover { color: #c9914a; }
+  @media (max-width: 700px) {
+    .lnav-brand-sub { display: none; }
+    .lnav-site { display: none; }
+    .lnav-links li a { font-size: 0.5rem; padding: 0 0.6rem; letter-spacing: 0.06em; }
+  }
+
 </style>
 </head>
 <body>
+
+<nav id="limicelia-nav">
+  <a class="lnav-brand" href="https://www.limicelia.org/limicelia-index.html">
+    <span class="lnav-brand-name">Limicelia</span>
+    <span class="lnav-brand-sub">Internal Docs</span>
+  </a>
+  <ul class="lnav-links">
+      <li><a href="https://www.limicelia.org/limicelia-index.html">Index</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-launch.html">Launch Page</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-translation-layer.html">Translation Layer</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-market-logic.html" class="lnav-active">Market Logic</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intel</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-pricing-tools.html">Pricing Tools</a></li>
+  </ul>
+  <a class="lnav-site" href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
+</nav>
+
+
 
 <header class="doc-header">
   <h1 class="doc-title">Market Logic &<br><em>Persona Analysis</em></h1>
@@ -599,7 +673,6 @@
     limicelia.org
   </div>
 </header>
-
 
 <!-- ══════════════════════════════════════
      SECTION 1 — WHY MARKET LEGIBILITY
@@ -656,7 +729,6 @@
   </div>
 </div>
 
-
 <!-- ══════════════════════════════════════
      SECTION 2 — SECTOR ANALYSIS
 ════════════════════════════════════════ -->
@@ -706,7 +778,6 @@
   </div>
 </div>
 
-
 <!-- ══════════════════════════════════════
      SECTION 3 — BUYER / BENEFICIARY
 ════════════════════════════════════════ -->
@@ -754,7 +825,6 @@
     A third role exists in many engagements: <strong>the influencer</strong> — the person inside the organization who has encountered Limicelia's practice traditions and champions the engagement internally. Often a mid-level practitioner, an equity lead, a co-founder who isn't the primary ED. They speak the specialized language already and become internal translators. Identifying and supporting influencers early significantly increases engagement success.
   </p>
 </div>
-
 
 <!-- ══════════════════════════════════════
      SECTION 4 — PERSONA MATRIX
@@ -837,7 +907,6 @@
     </tbody>
   </table>
 </div>
-
 
 <!-- ══════════════════════════════════════
      SECTION 5 — 2×2 SERVICE MATRIX
@@ -932,7 +1001,6 @@
     The matrix reveals a strategic truth: <strong>Limicelia's revenue model runs horizontal</strong> (institutional anchor clients fund solidarity-economy work), while <strong>the methodology runs vertical</strong> (crisis-response engagements and proactive-transformation engagements require different pacing, not different values). Market legibility matters most in the bottom-left. Specialized language is sufficient — and preferable — in the top-right and bottom-right. The top-left requires both simultaneously: the buyer is in crisis and needs fast trust, which means legible captions first and specialized depth as soon as the diagnostic conversation opens.
   </p>
 </div>
-
 
 <footer class="doc-footer">
   <span>Limicelia · limicelia.org</span>

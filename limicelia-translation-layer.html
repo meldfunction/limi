@@ -248,9 +248,83 @@
     .doc-header { flex-direction: column; align-items: flex-start; }
     .doc-meta { text-align: left; }
   }
+
+  
+
+  
+
+  
+
+  /* ── CANONICAL STICKY NAV ── */
+  #limicelia-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(14,13,10,0.97);
+    border-bottom: 1px solid rgba(242,234,216,0.09);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    height: 52px; display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem,5vw,5rem); gap: 1rem;
+  }
+  #limicelia-nav a { text-decoration: none; transition: color 0.2s; }
+  .lnav-brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
+  .lnav-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.88rem; font-weight: 300; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #f2ead8;
+  }
+  .lnav-brand-sub {
+    font-family: 'DM Mono', monospace; font-size: 0.48rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201,145,74,0.5);
+  }
+  .lnav-links {
+    display: flex; align-items: center; gap: 0; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .lnav-links::-webkit-scrollbar { display: none; }
+  .lnav-links li a {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,234,216,0.32); padding: 0 0.85rem;
+    height: 52px; display: flex; align-items: center;
+    border-right: 1px solid rgba(242,234,216,0.06); white-space: nowrap;
+  }
+  .lnav-links li:first-child a { border-left: 1px solid rgba(242,234,216,0.06); }
+  .lnav-links li a:hover { color: rgba(242,234,216,0.7); background: rgba(242,234,216,0.03); }
+  .lnav-links li a.lnav-active {
+    color: #c9914a; background: rgba(201,145,74,0.07); border-bottom: 2px solid #c9914a;
+  }
+  .lnav-site {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,145,74,0.4); flex-shrink: 0; white-space: nowrap;
+  }
+  .lnav-site:hover { color: #c9914a; }
+  @media (max-width: 700px) {
+    .lnav-brand-sub { display: none; }
+    .lnav-site { display: none; }
+    .lnav-links li a { font-size: 0.5rem; padding: 0 0.6rem; letter-spacing: 0.06em; }
+  }
+
 </style>
 </head>
 <body>
+
+<nav id="limicelia-nav">
+  <a class="lnav-brand" href="https://www.limicelia.org/limicelia-index.html">
+    <span class="lnav-brand-name">Limicelia</span>
+    <span class="lnav-brand-sub">Internal Docs</span>
+  </a>
+  <ul class="lnav-links">
+      <li><a href="https://www.limicelia.org/limicelia-index.html">Index</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-launch.html">Launch Page</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-translation-layer.html" class="lnav-active">Translation Layer</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-market-logic.html">Market Logic</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intel</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-pricing-tools.html">Pricing Tools</a></li>
+  </ul>
+  <a class="lnav-site" href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
+</nav>
+
+
 
 <header class="doc-header">
   <h1 class="doc-title">Limicelia<br><em>Translation Layer</em></h1>

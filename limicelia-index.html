@@ -337,20 +337,85 @@
     .sr-step::after { display: none; }
     .hero-meta { gap: 2rem; }
   }
+
+  
+
+  
+
+  
+
+  /* ── CANONICAL STICKY NAV ── */
+  #limicelia-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(14,13,10,0.97);
+    border-bottom: 1px solid rgba(242,234,216,0.09);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    height: 52px; display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem,5vw,5rem); gap: 1rem;
+  }
+  #limicelia-nav a { text-decoration: none; transition: color 0.2s; }
+  .lnav-brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
+  .lnav-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.88rem; font-weight: 300; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #f2ead8;
+  }
+  .lnav-brand-sub {
+    font-family: 'DM Mono', monospace; font-size: 0.48rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201,145,74,0.5);
+  }
+  .lnav-links {
+    display: flex; align-items: center; gap: 0; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .lnav-links::-webkit-scrollbar { display: none; }
+  .lnav-links li a {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,234,216,0.32); padding: 0 0.85rem;
+    height: 52px; display: flex; align-items: center;
+    border-right: 1px solid rgba(242,234,216,0.06); white-space: nowrap;
+  }
+  .lnav-links li:first-child a { border-left: 1px solid rgba(242,234,216,0.06); }
+  .lnav-links li a:hover { color: rgba(242,234,216,0.7); background: rgba(242,234,216,0.03); }
+  .lnav-links li a.lnav-active {
+    color: #c9914a; background: rgba(201,145,74,0.07); border-bottom: 2px solid #c9914a;
+  }
+  .lnav-site {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,145,74,0.4); flex-shrink: 0; white-space: nowrap;
+  }
+  .lnav-site:hover { color: #c9914a; }
+  @media (max-width: 700px) {
+    .lnav-brand-sub { display: none; }
+    .lnav-site { display: none; }
+    .lnav-links li a { font-size: 0.5rem; padding: 0 0.6rem; letter-spacing: 0.06em; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav">
-  <a class="nav-brand" href="https://www.limicelia.org" target="_blank">
-    <span class="nb-primary">Limicelia</span>
-    <span class="nb-secondary">Regenerative Org Transformation</span>
+<nav id="limicelia-nav">
+  <a class="lnav-brand" href="https://www.limicelia.org/limicelia-index.html">
+    <span class="lnav-brand-name">Limicelia</span>
+    <span class="lnav-brand-sub">Internal Docs</span>
   </a>
-  <div class="nav-right">
-    Internal document series · <a href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
-  </div>
+  <ul class="lnav-links">
+      <li><a href="https://www.limicelia.org/limicelia-index.html" class="lnav-active">Index</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-launch.html">Launch Page</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-translation-layer.html">Translation Layer</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-market-logic.html">Market Logic</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intel</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-pricing-tools.html">Pricing Tools</a></li>
+  </ul>
+  <a class="lnav-site" href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
 </nav>
+
+
+
+<!-- NAV -->
 
 <!-- HERO -->
 <div class="hero">
@@ -420,7 +485,7 @@
   <div class="doc-grid">
 
     <!-- CARD 1 — LAUNCH PAGE -->
-    <a class="doc-card" href="limicelia-launch.html" style="--card-color: var(--t2);">
+    <a class="doc-card" href="https://www.limicelia.org/limicelia-launch.html" style="--card-color: var(--t2);">
       <p class="dc-num">Doc 01 · Public-facing</p>
       <p class="dc-title">Launch Page</p>
       <p class="dc-subtitle">limicelia-launch.html</p>
@@ -435,7 +500,7 @@
     </a>
 
     <!-- CARD 2 — TRANSLATION LAYER -->
-    <a class="doc-card" href="limicelia-translation-layer.html" style="--card-color: var(--t3);">
+    <a class="doc-card" href="https://www.limicelia.org/limicelia-translation-layer.html" style="--card-color: var(--t3);">
       <p class="dc-num">Doc 02 · Messaging</p>
       <p class="dc-title">Translation Layer</p>
       <p class="dc-subtitle">limicelia-translation-layer.html</p>
@@ -450,7 +515,7 @@
     </a>
 
     <!-- CARD 3 — MARKET LOGIC -->
-    <a class="doc-card" href="limicelia-market-logic.html" style="--card-color: var(--t4);">
+    <a class="doc-card" href="https://www.limicelia.org/limicelia-market-logic.html" style="--card-color: var(--t4);">
       <p class="dc-num">Doc 03 · Strategy</p>
       <p class="dc-title">Market Logic &<br>Persona Analysis</p>
       <p class="dc-subtitle">limicelia-market-logic.html</p>
@@ -465,7 +530,7 @@
     </a>
 
     <!-- CARD 4 — BUDGET INTELLIGENCE (FEATURED) -->
-    <a class="doc-card featured" href="limicelia-budget-intelligence.html" style="--card-color: var(--amber);">
+    <a class="doc-card featured" href="https://www.limicelia.org/limicelia-budget-intelligence.html" style="--card-color: var(--amber);">
       <div class="dc-left">
         <p class="dc-num">Doc 04 · Pricing · Funding · Market Intelligence</p>
         <p class="dc-title">Budget Intelligence,<br>Personas & Funding Sources</p>
@@ -513,7 +578,7 @@
     </a>
 
     <!-- CARD 5 — PRICING TOOLS -->
-    <a class="doc-card" href="limicelia-pricing-tools.html" style="--card-color: var(--t3); grid-column: 1 / -1;">
+    <a class="doc-card" href="https://www.limicelia.org/limicelia-pricing-tools.html" style="--card-color: var(--t3); grid-column: 1 / -1;">
       <p class="dc-num">Doc 05 · Interactive Tools</p>
       <p class="dc-title">Pricing Tools &<br>Rate Intelligence</p>
       <p class="dc-subtitle">limicelia-pricing-tools.html · Companion to Doc 04</p>
@@ -551,42 +616,42 @@
     <tbody>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Sharing Limicelia externally for the first time</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-launch.html" style="color:var(--t2);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(126,170,191,0.3);">Launch Page</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-launch.html" style="color:var(--t2);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(126,170,191,0.3);">Launch Page</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">The whole page — designed to speak to any tier</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Talking to a corporate client unfamiliar with Limicelia's language</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-translation-layer.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Translation Layer</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-translation-layer.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Translation Layer</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">Market-legible caption for the relevant service domain</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Building a client pitch or understanding the buyer landscape</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-market-logic.html" style="color:var(--t4);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(176,127,176,0.3);">Market Logic</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-market-logic.html" style="color:var(--t4);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(176,127,176,0.3);">Market Logic</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">Buyer/beneficiary personas, tier decision-maker analysis</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Someone asks "how much does this cost?"</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a> + <a href="limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a> + <a href="https://www.limicelia.org/limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">§06 tier budget grid; calculator for custom estimate</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Writing a grant application or funder brief</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">§08 funding source map, §09 AI spotlight, §A2 sources with URLs</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Explaining what "tier" or "accompaniment" means to a new reader</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-budget-intelligence.html" style="color:var(--amber);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid var(--amber-dim);">Budget Intelligence</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">§0A — Key Terms Explained Plainly (12 terms)</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Comparing Limicelia rates to what the market charges</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">§02 market comparison chart + §04 market rate table</td>
       </tr>
       <tr style="border-bottom:1px solid var(--rule);">
         <td style="padding:0.9rem 1.2rem;color:rgba(242,234,216,0.75);font-weight:400;">Thinking through which practitioner roles an engagement needs</td>
-        <td style="padding:0.9rem 1.2rem;"><a href="limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
+        <td style="padding:0.9rem 1.2rem;"><a href="https://www.limicelia.org/limicelia-pricing-tools.html" style="color:var(--t3);text-decoration:none;font-family:'DM Mono',monospace;font-size:0.72rem;border-bottom:1px solid rgba(143,175,120,0.3);">Pricing Tools</a></td>
         <td style="padding:0.9rem 1.2rem;color:var(--muted);font-size:0.8rem;">§05 Role Rolodex — 24 roles, sortable, with rate ranges</td>
       </tr>
       <tr>

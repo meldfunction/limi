@@ -312,24 +312,85 @@
     .calc-output { border-left: none; border-top: 1px solid var(--amber-dim); padding-left: 0; padding-top: 2rem; }
     .masthead { grid-template-columns: 1fr; }
   }
+
+  
+
+  
+
+  
+
+  /* ── CANONICAL STICKY NAV ── */
+  #limicelia-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(14,13,10,0.97);
+    border-bottom: 1px solid rgba(242,234,216,0.09);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    height: 52px; display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem,5vw,5rem); gap: 1rem;
+  }
+  #limicelia-nav a { text-decoration: none; transition: color 0.2s; }
+  .lnav-brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
+  .lnav-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.88rem; font-weight: 300; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #f2ead8;
+  }
+  .lnav-brand-sub {
+    font-family: 'DM Mono', monospace; font-size: 0.48rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201,145,74,0.5);
+  }
+  .lnav-links {
+    display: flex; align-items: center; gap: 0; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .lnav-links::-webkit-scrollbar { display: none; }
+  .lnav-links li a {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,234,216,0.32); padding: 0 0.85rem;
+    height: 52px; display: flex; align-items: center;
+    border-right: 1px solid rgba(242,234,216,0.06); white-space: nowrap;
+  }
+  .lnav-links li:first-child a { border-left: 1px solid rgba(242,234,216,0.06); }
+  .lnav-links li a:hover { color: rgba(242,234,216,0.7); background: rgba(242,234,216,0.03); }
+  .lnav-links li a.lnav-active {
+    color: #c9914a; background: rgba(201,145,74,0.07); border-bottom: 2px solid #c9914a;
+  }
+  .lnav-site {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,145,74,0.4); flex-shrink: 0; white-space: nowrap;
+  }
+  .lnav-site:hover { color: #c9914a; }
+  @media (max-width: 700px) {
+    .lnav-brand-sub { display: none; }
+    .lnav-site { display: none; }
+    .lnav-links li a { font-size: 0.5rem; padding: 0 0.6rem; letter-spacing: 0.06em; }
+  }
+
 </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav class="nav">
-  <div>
-    <div class="nav-brand">Limicelia</div>
-    <div class="nav-sub">Pricing Tools & Rate Intelligence</div>
-  </div>
-  <ul class="nav-links">
-    <li><a href="#charts" class="active">Charts</a></li>
-    <li><a href="#calculator">Calculator</a></li>
-    <li><a href="#market">Market Rates</a></li>
-    <li><a href="#rolodex">Role Rolodex</a></li>
-    <li><a href="limicelia-budget-intelligence.html">← Budget Doc</a></li>
+<nav id="limicelia-nav">
+  <a class="lnav-brand" href="https://www.limicelia.org/limicelia-index.html">
+    <span class="lnav-brand-name">Limicelia</span>
+    <span class="lnav-brand-sub">Internal Docs</span>
+  </a>
+  <ul class="lnav-links">
+      <li><a href="https://www.limicelia.org/limicelia-index.html">Index</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-launch.html">Launch Page</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-translation-layer.html">Translation Layer</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-market-logic.html">Market Logic</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intel</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-pricing-tools.html" class="lnav-active">Pricing Tools</a></li>
   </ul>
+  <a class="lnav-site" href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
 </nav>
+
+
+
+<!-- ── NAV ── -->
 
 <div class="wrap">
 
@@ -355,7 +416,6 @@
   <a class="pill" href="#market">Market rate table</a>
   <a class="pill" href="#rolodex">Role rolodex</a>
 </div>
-
 
 <!-- ══════════════════════════════════════
      SECTION 1 — BUDGET CHARTS
@@ -432,7 +492,6 @@
   </div>
 </div>
 
-
 <!-- ══════════════════════════════════════
      SECTION 2 — MARKET COMPARISON CHART
 ═══════════════════════════════════════ -->
@@ -462,7 +521,6 @@
     <div class="chart-canvas-wrap" style="height:340px;"><canvas id="chartMarket"></canvas></div>
   </div>
 </div>
-
 
 <!-- ══════════════════════════════════════
      SECTION 3 — CALCULATOR
@@ -601,7 +659,6 @@
   </div>
 </div>
 
-
 <!-- ══════════════════════════════════════
      SECTION 4 — MARKET TABLE
 ═══════════════════════════════════════ -->
@@ -637,7 +694,6 @@
     </table>
   </div>
 </div>
-
 
 <!-- ══════════════════════════════════════
      SECTION 5 — ROLE ROLODEX
@@ -689,7 +745,7 @@
   <div class="footer-inner">
     <span>Limicelia · <a href="https://www.limicelia.org" target="_blank">limicelia.org</a></span>
     <span>Pricing Tools & Rate Intelligence · v1.0 · Feb 2026</span>
-    <span>Companion to <a href="limicelia-budget-intelligence.html">Budget Intelligence Doc</a></span>
+    <span>Companion to <a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intelligence Doc</a></span>
     <span>CC BY-SA 4.0</span>
   </div>
 </footer>

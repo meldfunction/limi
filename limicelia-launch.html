@@ -619,9 +619,83 @@
     .who-grid { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 1rem; text-align: center; }
   }
+
+  
+
+  
+
+  
+
+  /* ── CANONICAL STICKY NAV ── */
+  #limicelia-nav {
+    position: sticky; top: 0; z-index: 1000;
+    background: rgba(14,13,10,0.97);
+    border-bottom: 1px solid rgba(242,234,216,0.09);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    height: 52px; display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem,5vw,5rem); gap: 1rem;
+  }
+  #limicelia-nav a { text-decoration: none; transition: color 0.2s; }
+  .lnav-brand { display: flex; flex-direction: column; line-height: 1.1; flex-shrink: 0; }
+  .lnav-brand-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 0.88rem; font-weight: 300; letter-spacing: 0.22em;
+    text-transform: uppercase; color: #f2ead8;
+  }
+  .lnav-brand-sub {
+    font-family: 'DM Mono', monospace; font-size: 0.48rem;
+    letter-spacing: 0.14em; text-transform: uppercase; color: rgba(201,145,74,0.5);
+  }
+  .lnav-links {
+    display: flex; align-items: center; gap: 0; list-style: none;
+    overflow-x: auto; scrollbar-width: none;
+  }
+  .lnav-links::-webkit-scrollbar { display: none; }
+  .lnav-links li a {
+    font-family: 'DM Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(242,234,216,0.32); padding: 0 0.85rem;
+    height: 52px; display: flex; align-items: center;
+    border-right: 1px solid rgba(242,234,216,0.06); white-space: nowrap;
+  }
+  .lnav-links li:first-child a { border-left: 1px solid rgba(242,234,216,0.06); }
+  .lnav-links li a:hover { color: rgba(242,234,216,0.7); background: rgba(242,234,216,0.03); }
+  .lnav-links li a.lnav-active {
+    color: #c9914a; background: rgba(201,145,74,0.07); border-bottom: 2px solid #c9914a;
+  }
+  .lnav-site {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em;
+    text-transform: uppercase; color: rgba(201,145,74,0.4); flex-shrink: 0; white-space: nowrap;
+  }
+  .lnav-site:hover { color: #c9914a; }
+  @media (max-width: 700px) {
+    .lnav-brand-sub { display: none; }
+    .lnav-site { display: none; }
+    .lnav-links li a { font-size: 0.5rem; padding: 0 0.6rem; letter-spacing: 0.06em; }
+  }
+
 </style>
 </head>
 <body>
+
+<nav id="limicelia-nav">
+  <a class="lnav-brand" href="https://www.limicelia.org/limicelia-index.html">
+    <span class="lnav-brand-name">Limicelia</span>
+    <span class="lnav-brand-sub">Internal Docs</span>
+  </a>
+  <ul class="lnav-links">
+      <li><a href="https://www.limicelia.org/limicelia-index.html">Index</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-launch.html" class="lnav-active">Launch Page</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-translation-layer.html">Translation Layer</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-market-logic.html">Market Logic</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-budget-intelligence.html">Budget Intel</a></li>
+      <li><a href="https://www.limicelia.org/limicelia-pricing-tools.html">Pricing Tools</a></li>
+  </ul>
+  <a class="lnav-site" href="https://www.limicelia.org" target="_blank">limicelia.org ↗</a>
+</nav>
+
+
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursor-ring"></div>
@@ -629,14 +703,7 @@
 
 <!-- ── HERO ── -->
 <section class="hero">
-  <nav class="nav">
-    <a class="nav-logo" href="#">Limicelia</a>
-    <ul class="nav-links">
-      <li><a href="#work">Work</a></li>
-      <li><a href="#philosophy">Philosophy</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  
 
   <div class="hero-body">
     <p class="eyebrow">Organizational Accompaniment</p>
@@ -791,7 +858,7 @@
     We engage a limited number of organizations at a time. A first conversation is low-stakes and free — it's how we both discover whether accompaniment makes sense.
   </p>
   <div class="cta-group reveal reveal-delay-2">
-    <a href="mailto:hello@limicelia.com" class="btn-primary">hello@limicelia.com</a>
+    <a href="/cdn-cgi/l/email-protection#2b434e4747446b47424642484e47424a05484446" class="btn-primary"><span class="__cf_email__" data-cfemail="b8d0ddd4d4d7f8d4d1d5d1dbddd4d1d996dbd7d5">[email&#160;protected]</span></a>
     <a href="#" class="btn-ghost">Schedule a call</a>
   </div>
 </section>
@@ -801,7 +868,7 @@
   <span class="footer-note">Organizational Accompaniment &nbsp;·&nbsp; Est. 2024</span>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
   const ring = document.getElementById('cursor-ring');
@@ -907,12 +974,4 @@
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-    });
-  }, { threshold: 0.12 });
-  reveals.forEach(el => io.observe(el));
-</script>
-</body>
-</html>
+  const io = new Intersectio
