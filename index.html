@@ -706,6 +706,87 @@ p:last-child { margin-bottom: 0; }
   font-style: italic;
 }
 
+/* ─── TEAM CARDS ─────────────────────────────────────────────── */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin: 28px 0;
+}
+.team-card {
+  border: 1px solid var(--rule-lt);
+  background: var(--paper);
+  padding: 28px 24px;
+  text-align: center;
+}
+.team-photo {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--paper-d);
+  border: 1px solid var(--rule);
+  margin: 0 auto 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  color: var(--rule);
+  font-weight: 300;
+}
+.team-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+.team-role {
+  font-size: .6875rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 14px;
+}
+.team-bio {
+  font-size: clamp(.95rem, 1.2vw, 1.05rem);
+  line-height: 1.85;
+  color: var(--ink-soft);
+  font-weight: 300;
+  text-align: left;
+}
+
+/* ─── CLIENT LOGOS ────────────────────────────────────────────── */
+.client-strip {
+  margin: 32px 0 8px;
+  padding: 24px 0;
+  border-top: 1px solid var(--rule-lt);
+}
+.client-strip-label {
+  font-size: .5625rem;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+  text-align: center;
+}
+.client-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.client-logo {
+  font-size: .75rem;
+  letter-spacing: .08em;
+  color: var(--rule);
+  text-transform: uppercase;
+  padding: 12px 16px;
+  border: 1px solid var(--rule-lt);
+  background: var(--paper-w);
+  white-space: nowrap;
+}
+
 /* ─── ANIMATE IN ──────────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(12px); }
@@ -876,6 +957,7 @@ p:last-child { margin-bottom: 0; }
   .traditions-grid { grid-template-columns: 1fr; }
   .play-grid { grid-template-columns: 1fr; }
   .service-cards { grid-template-columns: 1fr !important; }
+  .team-grid { grid-template-columns: 1fr; }
   .vision-strip { flex-direction: column; padding: 20px 28px; gap: 12px; }
   .vs-label { border-right: none; padding-right: 0; border-bottom: 1px solid var(--rule-lt); padding-bottom: 10px; }
   .closing-block { padding: 40px 28px; }
@@ -916,6 +998,8 @@ p:last-child { margin-bottom: 0; }
   .vs-text { font-size: clamp(1rem, 4vw, 1.15rem); }
   .vision-strip { padding: 16px 20px; }
   .service-card { padding: 20px !important; }
+  .client-logos { gap: 16px; }
+  .client-logo { font-size: .65rem; padding: 8px 12px; }
 }
 </style>
 </head>
@@ -1113,6 +1197,53 @@ p:last-child { margin-bottom: 0; }
       <p><strong>Worker cooperatives and solidarity organizations</strong> that can't afford help — and need it most. Our access pool exists for you.</p>
       <p><strong>Fiscal sponsors, federations, and infrastructure organizations</strong> that support everyone else and have nobody to call when they're the ones in crisis.</p>
       <p><strong>Frontline workers and program staff</strong> who see exactly what's broken and aren't being heard.</p>
+
+    </div>
+  </div>
+
+  <!-- ── SECTION 5: Who We Are ── -->
+  <hr class="sec-divider">
+  <div class="body-section" id="team">
+    <div class="margin-col">
+      <span class="margin-label">Who We Are</span>
+    </div>
+    <div class="text-col">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Co-stewards,<br>not <em>executives.</em></h2>
+      <div class="short-rule"></div>
+
+      <p>Limicelia is a non-profit consultancy co-stewarded by BK and Carol Xu. We help organizations cross the thresholds of regenerative change.</p>
+
+      <p>Our approach is rooted in living systems methodologies, contemplation and somatics, dynamic governance and wisdom traditions. We don't prescribe solutions — we accompany organizations through creating them by building containers for honest conversation, conflict navigation, and collective healing.</p>
+
+      <p>We believe consulting can be different — more alive — when it returns to the basics of how systems in Nature learn, adapt, and create space for lasting change. We have cultivated a partner network of organizations with similar values and vision so we don't go it alone.</p>
+
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-photo">BK</div>
+          <div class="team-name">BK <span style="font-size:.85rem;color:var(--ink-soft);font-style:italic;">(he/él)</span></div>
+          <div class="team-role">Regenerative Technologist · Systems &amp; Governance Coach</div>
+          <p class="team-bio">Over fifteen years spanning private sector, public sector, cooperatives, and community. Focuses on building space for community dialogue through warm data practices. Currently building the <a href="present-of-work.html" style="color:var(--ink-mid);text-decoration:underline;text-underline-offset:3px;">Present of Work</a> — an ecosystem community and podcast.</p>
+        </div>
+        <div class="team-card">
+          <div class="team-photo">CX</div>
+          <div class="team-name">Carol Xu</div>
+          <div class="team-role">Organizational Transformation Designer</div>
+          <p class="team-bio">Ph.D. in Management Science and Engineering from Stanford. Designs experiential programs blending contemplative, creative, and strategic elements for organizational transformation.</p>
+        </div>
+      </div>
+
+      <div class="client-strip">
+        <div class="client-strip-label">Organizations we've worked with</div>
+        <div class="client-logos">
+          <span class="client-logo">Google.org</span>
+          <span class="client-logo">Ford Foundation</span>
+          <span class="client-logo">Ashoka</span>
+          <span class="client-logo">Patagonia</span>
+          <span class="client-logo">Mozilla</span>
+          <span class="client-logo">IDEO</span>
+        </div>
+      </div>
 
     </div>
   </div>
