@@ -1,0 +1,94 @@
+name: Promote — Staging → Production
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Manual trigger only — promotes current staging (meldfunction/limicelia)
+# to production (meldfunction/limi → limicelia.org)
+#
+# How to run:
+#   GitHub → meldfunction/limi → Actions → "Promote — Staging → Production"
+#   → Run workflow → confirm
+#
+# What it does:
+#   1. Checks out meldfunction/limicelia (staging)
+#   2. Copies all .html, .css, .js, images into meldfunction/limi (this repo)
+#   3. Commits + pushes → GitHub Pages deploys → limicelia.org updates
+# ─────────────────────────────────────────────────────────────────────────────
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type PROMOTE to confirm production deploy'
+        required: true
+        default: ''
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-prod
+  cancel-in-progress: false
+
+jobs:
+  promote:
+    if: github.event.inputs.confirm == 'PROMOTE'
+    runs-on: ubuntu-latest
+    name: Promote Staging → Production
+    environment:
+      name: production
+      url: https://limicelia.org
+    steps:
+      - name: Checkout production repo (limi)
+        uses: actions/checkout@v4
+        with:
+          path: prod
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout staging repo (limicelia)
+        uses: actions/checkout@v4
+        with:
+          repository: meldfunction/limicelia
+          path: staging
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Sync staging → production
+        run: |
+          cd prod
+          # Copy all web assets from staging (exclude git, workflows, hidden files)
+          rsync -av --delete \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='node_modules/' \
+            --exclude='*.jsonl' \
+            --exclude='*.pdf' \
+            --exclude='_*' \
+            ../staging/ ./
+          echo "Files synced"
+
+      - name: Commit and push
+        run: |
+          cd prod
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          # Only commit if there are changes
+          git diff --staged --quiet && echo "No changes to promote" && exit 0
+          STAGING_SHA=$(cd ../staging && git rev-parse --short HEAD)
+          git commit -m "promote: staging → prod (limicelia@${STAGING_SHA})"
+          git push
+          echo "✓ Production → https://limicelia.org"
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: prod
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
