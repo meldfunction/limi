@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Attuning to Aliveness — a monthly gathering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;1,400;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FBF1E7; --bg-deep:#F3E2CE;
+    --ink:#2E241C; --ink-soft:#6E5B4C;
+    --terracotta:#C1694F; --terracotta-soft:#E3A98A;
+    --sage:#7C8A66; --sage-soft:#A9B896;
+    --line:rgba(46,36,28,.14); --line-strong:rgba(46,36,28,.28);
+    --serif:'Newsreader', serif; --sans:'Work Sans', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(193,105,79,.10), transparent),
+      var(--bg);
+    color:var(--ink); font-family:var(--sans); font-weight:300; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .col{max-width:680px; margin:0 auto; padding:0 28px;}
+
+  nav{display:flex; justify-content:space-between; align-items:center; padding:32px 28px; max-width:680px; margin:0 auto; font-size:.85rem;}
+  .backlink{color:var(--ink-soft); text-decoration:none; border-bottom:1px solid var(--line-strong); padding-bottom:1px;}
+  .backlink:hover{color:var(--terracotta); border-color:var(--terracotta);}
+  .wordmark-small{font-family:var(--serif); font-style:italic; font-weight:500; color:var(--terracotta); font-size:1.05rem;}
+
+  header.hero{padding:28px 28px 24px; max-width:680px; margin:0 auto; text-align:center;}
+  .rings-wrap{display:flex; justify-content:center; margin-bottom:8px;}
+  .rings{width:150px; height:150px;}
+  .ring{transform-origin:center; animation:breathe 5.5s ease-in-out infinite;}
+  @keyframes breathe{
+    0%,100%{ transform:scale(1); opacity:.5; }
+    50%{ transform:scale(1.07); opacity:.95; }
+  }
+  @media (prefers-reduced-motion: reduce){ .ring{animation:none; opacity:.8;} }
+
+  .eyebrow{
+    font-size:.74rem; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--terracotta); font-weight:600; margin-bottom:18px;
+  }
+  .brandname{
+    font-family:var(--serif); font-weight:500; font-size:clamp(2.2rem,6vw,3.2rem);
+    line-height:1.05; color:var(--ink); letter-spacing:-0.01em;
+  }
+  .tagline{
+    font-family:var(--serif); font-style:italic; font-weight:400;
+    font-size:clamp(1.1rem, 2.6vw, 1.3rem); line-height:1.5; color:var(--ink-soft);
+    max-width:34ch; margin:16px auto 0;
+  }
+  .stewards{
+    margin-top:22px; font-size:.82rem; letter-spacing:.03em; color:var(--ink-soft);
+  }
+
+  section{padding:52px 0; border-top:1px solid var(--line);}
+  header.hero + .col section:first-child{border-top:none;}
+  .kicker{font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--terracotta); font-weight:600; margin-bottom:16px;}
+
+  .intention p{font-family:var(--serif); font-size:1.24rem; line-height:1.68; color:var(--ink);}
+  .intention p + p{margin-top:1.1em;}
+
+  .lineages .taglist{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;}
+  .lineage-chip{
+    background:var(--bg-deep); border:1px solid var(--line-strong); border-radius:999px;
+    padding:9px 16px; font-size:.86rem;
+  }
+  .lineage-chip strong{font-weight:500; color:var(--ink);}
+  .lineage-chip span{color:var(--ink-soft);}
+
+  .flow .beat{display:flex; gap:20px; padding:22px 0; border-bottom:1px dashed var(--line-strong);}
+  .flow .beat:last-child{border-bottom:none;}
+  .beat .marker{
+    flex:none; width:34px; height:34px; border-radius:50%;
+    border:1.5px solid var(--terracotta-soft); color:var(--terracotta);
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--serif); font-style:italic; font-size:1rem;
+  }
+  .beat h3{font-family:var(--serif); font-weight:500; font-size:1.15rem; margin-bottom:6px;}
+  .beat p{font-size:.94rem; color:var(--ink-soft); max-width:48ch;}
+
+  .practicing{text-align:center;}
+  .practicing .line{
+    font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,2.6vw,1.3rem);
+    color:var(--ink); padding:14px 0; max-width:38ch; margin:0 auto;
+  }
+  .practicing .line em{color:var(--terracotta); font-style:italic;}
+
+  blockquote{
+    background:var(--sage); background:linear-gradient(135deg, var(--sage), #6C7A58);
+    color:var(--bg); padding:44px 36px; border-radius:4px;
+    font-family:var(--serif); font-style:italic; font-size:clamp(1.05rem,2.2vw,1.22rem);
+    line-height:1.6;
+  }
+  blockquote p + p{margin-top:1em;}
+  blockquote .cite{
+    display:block; margin-top:22px; font-family:var(--sans); font-style:normal;
+    font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:rgba(251,241,231,.75);
+  }
+
+  .closing{text-align:center; padding-bottom:80px;}
+  .closing h2{font-family:var(--serif); font-style:italic; font-weight:400; font-size:1.5rem; max-width:24ch; margin:0 auto 22px;}
+  .closing .signed{font-family:var(--serif); font-style:italic; color:var(--ink-soft); margin-bottom:26px;}
+  .closing a.cta{
+    font-family:var(--sans); font-size:.9rem; font-weight:500; color:var(--bg);
+    background:var(--terracotta); text-decoration:none; padding:13px 28px; display:inline-block; border-radius:999px;
+  }
+  .closing a.cta:hover{background:#A9573F;}
+
+  footer{border-top:1px solid var(--line); padding:32px 28px; text-align:center;}
+  footer p{font-size:.8rem; color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="wordmark-small">Attuning to Aliveness</span>
+  <a class="backlink" href="index.html">← Back</a>
+</nav>
+
+<header class="hero">
+  <div class="rings-wrap">
+    <svg class="rings" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle class="ring" cx="75" cy="75" r="66" stroke="#C1694F" stroke-width="1.2"/>
+      <circle class="ring" cx="75" cy="75" r="48" stroke="#7C8A66" stroke-width="1.2" style="animation-delay:.6s"/>
+      <circle class="ring" cx="75" cy="75" r="30" stroke="#D9A566" stroke-width="1.4" style="animation-delay:1.2s"/>
+      <circle cx="75" cy="75" r="9" fill="#C1694F" opacity=".85"/>
+    </svg>
+  </div>
+  <div class="eyebrow">A Monthly Gathering</div>
+  <h1 class="brandname">Attuning to Aliveness</h1>
+  <p class="tagline">An afternoon of collective and individual practice — exploring what feels alive in ourselves and each other.</p>
+  <div class="stewards">Stewarded by Carol, Lucy &amp; Maja</div>
+</header>
+
+<div class="col">
+  <section class="intention">
+    <div class="kicker">Our Intention</div>
+    <p>We want to explore more deeply into what feels alive in individuals and collectives. There are many ways of knowing and connecting to our life forces — through relational practice, movement, sound, imagery, touch, taste, and beyond.</p>
+    <p>We want to cultivate a spacious space for all of us to explore different ways of knowing, connect more deeply with our aliveness, and form authentic relationships with each other. Over time, a true community — where self-authorship is respected and mutual support is nurtured — can emerge.</p>
+    <p>We believe this work can take many forms, and we invite offerings, ideas, and collaborations from the community.</p>
+  </section>
+
+  <section class="lineages">
+    <div class="kicker">Lineages &amp; Disciplines We Draw From</div>
+    <div class="taglist">
+      <span class="lineage-chip"><strong>Contemplative traditions</strong> — <span>Tibetan &amp; Zen Buddhism, Advaita Vedanta, Daoism</span></span>
+      <span class="lineage-chip"><strong>Relational practices</strong> — <span>T-group, Circling, Collective Presencing, Bohm Dialogue</span></span>
+      <span class="lineage-chip"><strong>Healing modalities</strong> — <span>Tai Chi, somatic healing, transpersonal psychology</span></span>
+      <span class="lineage-chip"><strong>Creative modalities</strong> — <span>mandala drawing, mystical poetry, authentic movement</span></span>
+      <span class="lineage-chip"><strong>Regenerative system practices</strong> — <span>social permaculture</span></span>
+    </div>
+  </section>
+
+  <section class="flow">
+    <div class="kicker">The Flow of an Afternoon</div>
+    <div class="beat">
+      <span class="marker">1</span>
+      <div><h3>Greetings &amp; Centering</h3><p>We start at 1:30pm with group meditation or movement to ground and relax, opening space for deeper connection with ourselves, each other, and the moment — followed by a brief round of check-in.</p></div>
+    </div>
+    <div class="beat">
+      <span class="marker">2</span>
+      <div><h3>Collective Attunement — 1 hour</h3><p>Relational practices such as Circling or T-group, attuning to what's alive in the here and now, in individuals and the collective. A brief introduction is offered for anyone new to these forms.</p></div>
+    </div>
+    <div class="beat">
+      <span class="marker">3</span>
+      <div><h3>Individual Attunement — 1 hour</h3><p>Facilitated and self-guided practices across movement, dialogue, sound, and imagery. Join, initiate, or practice solo. We observe the law of two feet: anyone may leave a practice at any time, no explanation needed.</p></div>
+    </div>
+    <div class="beat">
+      <span class="marker">4</span>
+      <div><h3>Sacred Circle: Reflection &amp; Integration</h3><p>We return to a large circle to reflect on what we've noticed and learned, and explore how to integrate it into the month ahead. We close with hugs and goodbyes.</p></div>
+    </div>
+  </section>
+
+  <section class="practicing">
+    <div class="kicker">What We're Practicing</div>
+    <p class="line">Let's attune to the <em>dynamic emergence</em> of aliveness.</p>
+    <p class="line">Let's tend to the <em>deep yearnings</em> of each other.</p>
+    <p class="line">Let's play with the <em>skillful integration</em> of polarities.</p>
+    <p class="line">Let's flow with <em>sacred currents</em> of the Universe.</p>
+    <p class="line">Let's plant seeds of <em>revolutionary embodiment</em> of giving and receiving.</p>
+  </section>
+
+  <section class="reflection">
+    <div class="kicker">A Reflection We Return To</div>
+    <blockquote>
+      <p>"What I see emerging everywhere are small islands of coherence — circles of people gathering with sincerity, presence, and a willingness to be changed by what they encounter. These aren't monasteries in the old sense, walled off from the world. They are monasteries of attention."</p>
+      <p>"These islands are not escapes. They are anchors... The truth is, we don't need a single heroic leader to save us. We are the ones we've been waiting for."</p>
+      <span class="cite">Claudia Dommaschk</span>
+    </blockquote>
+  </section>
+
+  <section class="closing">
+    <h2>If something here feels alive, we'd like to hear from you.</h2>
+    <div class="signed">With care, Carol, Lucy &amp; Maja</div>
+    <a class="cta" href="mailto:contact@limicelia.org">Get in touch</a>
+  </section>
+</div>
+
+<footer>
+  <p>Attuning to Aliveness (ATA) — a monthly gathering.</p>
+</footer>
+
+</body>
+</html>

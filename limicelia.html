@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Limicelia — a practice studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F5F1E6;
+    --bg-deep:#EDE7D6;
+    --ink:#241E15;
+    --ink-soft:#4A4436;
+    --moss:#47543A;
+    --moss-dark:#2E3826;
+    --gold:#B8863B;
+    --line:rgba(36,30,21,.14);
+    --line-strong:rgba(36,30,21,.28);
+    --serif:'Fraunces', serif;
+    --sans:'Public Sans', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 32px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:28px 32px; max-width:1080px; margin:0 auto;
+  }
+  .wordmark{
+    font-family:var(--serif); font-weight:500; font-size:1.35rem;
+    letter-spacing:0.01em;
+  }
+  .navlinks{display:flex; gap:36px; list-style:none; font-size:.88rem; letter-spacing:.02em;}
+  .navlinks a{text-decoration:none; color:var(--ink-soft); border-bottom:1px solid transparent; padding-bottom:2px; transition:border-color .2s;}
+  .navlinks a:hover{border-color:var(--gold);}
+  @media(max-width:640px){.navlinks{display:none;}}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:64px 32px 96px;
+    max-width:1080px; margin:0 auto;
+    display:grid; grid-template-columns: 1.15fr .85fr; gap:56px; align-items:center;
+  }
+  @media(max-width:860px){.hero{grid-template-columns:1fr; padding-top:24px;}}
+
+  .eyebrow{
+    font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--moss); font-weight:600; margin-bottom:22px;
+  }
+  .headline{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:clamp(2.1rem, 4.2vw, 3.1rem);
+    line-height:1.18;
+    letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .headline em{font-style:italic; color:var(--moss-dark);}
+  .subline{
+    margin-top:26px; font-size:1.08rem; color:var(--ink-soft); max-width:46ch;
+    font-family:var(--serif); font-style:italic; font-weight:400;
+  }
+
+  /* aperture graphic */
+  .aperture-wrap{
+    display:flex; align-items:center; justify-content:center;
+  }
+  .aperture{width:100%; max-width:340px; height:auto;}
+  .aperture .blade{
+    transform-origin:170px 170px;
+    animation:openBlade 1.6s cubic-bezier(.2,.7,.2,1) both;
+  }
+  .aperture .filament{
+    stroke-dasharray: 300;
+    stroke-dashoffset: 300;
+    animation: drawLine 2.2s ease forwards;
+    animation-delay: .5s;
+  }
+  @keyframes openBlade{
+    from{ transform:scale(.55) rotate(-14deg); opacity:0;}
+    to{ transform:scale(1) rotate(0deg); opacity:1;}
+  }
+  @keyframes drawLine{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .aperture .blade, .aperture .filament{animation:none; opacity:1; stroke-dashoffset:0;}
+  }
+
+  /* ---------- PULL QUOTE / DIAGNOSIS ---------- */
+  .band{
+    background:var(--moss-dark); color:var(--bg);
+    padding:72px 32px;
+  }
+  .band-inner{max-width:760px; margin:0 auto; text-align:left;}
+  .band p{
+    font-family:var(--serif); font-weight:400; font-style:italic;
+    font-size:clamp(1.35rem, 2.6vw, 1.85rem);
+    line-height:1.42;
+  }
+  .band .attribution{
+    margin-top:26px; font-family:var(--sans); font-style:normal;
+    font-size:.82rem; letter-spacing:.08em; text-transform:uppercase;
+    color:#C9CFB8;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    padding:96px 32px; max-width:1080px; margin:0 auto;
+    display:grid; grid-template-columns: 220px 1fr; gap:56px;
+  }
+  @media(max-width:760px){.about{grid-template-columns:1fr; gap:20px;}}
+  .about .label{
+    font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--moss); font-weight:600; position:sticky; top:32px; height:fit-content;
+  }
+  .about .copy{
+    font-family:var(--serif); font-size:1.28rem; line-height:1.62; color:var(--ink);
+    max-width:62ch;
+  }
+  .about .copy p + p{margin-top:1.3em;}
+
+  /* ---------- THREE PRACTICES ---------- */
+  .practices{padding:0 32px 96px; max-width:1080px; margin:0 auto;}
+  .practices-head{
+    display:flex; align-items:baseline; justify-content:space-between; gap:24px;
+    border-top:1px solid var(--line); padding-top:40px; margin-bottom:48px;
+  }
+  .practices-head h2{
+    font-family:var(--serif); font-weight:400; font-size:1.9rem;
+  }
+  .practices-head .note{font-size:.9rem; color:var(--ink-soft); max-width:32ch;}
+  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  @media(max-width:760px){.grid3{grid-template-columns:1fr;}}
+  .card{background:var(--bg); padding:38px 32px;}
+  .card .num{font-family:var(--serif); font-style:italic; color:var(--gold); font-size:1rem; margin-bottom:18px; display:block;}
+  .card h3{font-family:var(--serif); font-weight:500; font-size:1.35rem; margin-bottom:12px;}
+  .card p{color:var(--ink-soft); font-size:.98rem; line-height:1.55;}
+
+  /* ---------- GATE (two paths) ---------- */
+  .gate{background:var(--bg-deep); padding:96px 32px;}
+  .gate-inner{max-width:1080px; margin:0 auto;}
+  .gate-head{max-width:60ch; margin-bottom:52px;}
+  .gate-head .label{
+    font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--moss); font-weight:600; margin-bottom:16px; display:block;
+  }
+  .gate-head h2{font-family:var(--serif); font-weight:400; font-size:2rem; line-height:1.28; margin-bottom:16px;}
+  .gate-head p{color:var(--ink-soft); font-size:1rem;}
+  .gate-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media(max-width:760px){.gate-grid{grid-template-columns:1fr;}}
+  .gate-card{
+    display:block; text-decoration:none; color:var(--ink);
+    background:var(--bg); border:1px solid var(--line-strong);
+    padding:38px 34px; transition:border-color .2s, transform .2s;
+  }
+  .gate-card:hover{border-color:var(--moss); transform:translateY(-2px);}
+  .gate-eyebrow{
+    font-size:.76rem; letter-spacing:.12em; text-transform:uppercase;
+    color:var(--gold); font-weight:600;
+  }
+  .gate-card h3{
+    font-family:var(--serif); font-style:italic; font-weight:500;
+    font-size:1.3rem; margin:14px 0 12px; color:var(--ink-soft);
+  }
+  .gate-card p{font-size:.96rem; color:var(--ink-soft); line-height:1.55; margin-bottom:20px;}
+  .gate-link{font-size:.88rem; font-weight:600; color:var(--moss-dark);}
+  .ts-foot{margin-top:36px; font-size:.85rem; color:var(--ink-soft); font-style:italic; font-family:var(--serif);}
+
+  /* ---------- CTA ---------- */
+  .cta{padding:88px 32px; text-align:center;}
+  .cta h2{font-family:var(--serif); font-weight:400; font-size:2rem; max-width:26ch; margin:0 auto 28px;}
+  .cta-buttons{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; padding:13px 28px; font-size:.92rem; text-decoration:none;
+    border-radius:2px; letter-spacing:.02em; font-weight:500;
+  }
+  .btn-primary{background:var(--moss-dark); color:var(--bg);}
+  .btn-secondary{border:1px solid var(--line-strong); color:var(--ink);}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:40px 32px;}
+  .foot-inner{
+    max-width:1080px; margin:0 auto; display:flex; justify-content:space-between;
+    flex-wrap:wrap; gap:16px; font-size:.82rem; color:var(--ink-soft);
+  }
+  footer .sponsor{max-width:52ch;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wordmark">Limicelia</div>
+  <ul class="navlinks">
+    <li><a href="#about">Practice</a></li>
+    <li><a href="#taking-shape">Our Practices</a></li>
+    <li><a href="#contact">Connect</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div>
+    <div class="eyebrow">A practice studio</div>
+    <h1 class="headline">When we narrow the complexity of our problems,<br>we narrow <em>the potential of our solutions.</em></h1>
+    <p class="subline">Limicelia aims to open the aperture.</p>
+  </div>
+  <div class="aperture-wrap">
+    <svg class="aperture" viewBox="0 0 340 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- filaments -->
+      <g stroke="#B8863B" stroke-width="1" opacity="0.55">
+        <path class="filament" d="M170 170 C 120 120, 60 100, 20 40" />
+        <path class="filament" d="M170 170 C 220 120, 280 100, 320 40" style="animation-delay:.7s"/>
+        <path class="filament" d="M170 170 C 110 200, 60 240, 30 300" style="animation-delay:.9s"/>
+        <path class="filament" d="M170 170 C 230 200, 280 240, 310 300" style="animation-delay:1.1s"/>
+        <path class="filament" d="M170 170 C 170 100, 170 60, 170 10" style="animation-delay:1.3s"/>
+        <path class="filament" d="M170 170 C 170 240, 170 280, 170 330" style="animation-delay:1.5s"/>
+      </g>
+      <!-- aperture blades -->
+      <g class="blade">
+        <circle cx="170" cy="170" r="96" stroke="#2E3826" stroke-width="1.4" opacity="0.9"/>
+      </g>
+      <g class="blade" style="animation-delay:.08s">
+        <circle cx="170" cy="170" r="74" stroke="#47543A" stroke-width="1.4" opacity="0.85"/>
+      </g>
+      <g class="blade" style="animation-delay:.16s">
+        <circle cx="170" cy="170" r="52" stroke="#B8863B" stroke-width="1.6" opacity="0.9"/>
+      </g>
+      <g class="blade" style="animation-delay:.24s">
+        <circle cx="170" cy="170" r="30" fill="#241E15" opacity="0.06"/>
+        <circle cx="170" cy="170" r="30" stroke="#241E15" stroke-width="1.2" opacity="0.8"/>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<section class="band">
+  <div class="band-inner">
+    <p>“We believe many of our greatest challenges stem from a paradigm of oversimplification and reductionism, of solutionism and optimization. It flattens what it studies without ever living inside it.”</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="label">Who We Are</div>
+  <div class="copy">
+    <p>We are a practice studio focused on attending to what's alive in our communities and organizations. We create, we consult, and we cultivate spaces for receptivity and dialogue to make room for deeper engagement through creativity, regeneration, and awareness.</p>
+    <p>Our work moves across the personal, the interpersonal, and the systemic, so that we can work and live more fully together.</p>
+  </div>
+</section>
+
+<section class="practices">
+  <div class="practices-head">
+    <h2>Three ways in</h2>
+    <div class="note">Each carries its own focus and partners, and each is one part of the same practice.</div>
+  </div>
+  <div class="grid3">
+    <div class="card">
+      <span class="num">I.</span>
+      <h3>Create</h3>
+      <p>Writing, gatherings, and other forms that give shape to what's shifting — in how work, life, and living are understood.</p>
+    </div>
+    <div class="card">
+      <span class="num">II.</span>
+      <h3>Consult</h3>
+      <p>Coaching, trainings, and engagements with organizations navigating growth, transition, or strain — paced to what a group is ready for.</p>
+    </div>
+    <div class="card">
+      <span class="num">III.</span>
+      <h3>Cultivate</h3>
+      <p>Experiential practice for individual and collective awareness — contemplative, creative, and strategic, held at once.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gate" id="taking-shape">
+  <div class="gate-inner">
+    <div class="gate-head">
+      <span class="label">Two Practices, One Studio</span>
+      <h2>Limicelia holds the frame. The practice lives in two places.</h2>
+      <p>Each of us leads work under the Limicelia umbrella, with its own focus, partners, and funding. Follow either path to see what's currently taking shape.</p>
+    </div>
+    <div class="gate-grid">
+      <a class="gate-card" href="understory.html">
+        <span class="gate-eyebrow">Path One</span>
+        <h3>Understory</h3>
+        <p>Awareness, dialogue, and collective sensemaking — practice for individuals, teams, and communities.</p>
+        <span class="gate-link">Visit the site &nbsp;→</span>
+      </a>
+      <a class="gate-card" href="fieldwork.html">
+        <span class="gate-eyebrow">Path Two</span>
+        <h3>Fieldwork</h3>
+        <p>Gatherings, convenings, and emerging ventures — practice for communities, technologists, and builders.</p>
+        <span class="gate-link">Visit the site &nbsp;→</span>
+      </a>
+    </div>
+    <p class="ts-foot">Not sure which is the right door? Reach out below and we'll point you the right way.</p>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <h2>Practice is the point.</h2>
+  <div class="cta-buttons">
+    <a href="mailto:hello@limicelia.org" class="btn btn-primary">Get in touch</a>
+    <a href="#" class="btn btn-secondary">Make a donation</a>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div class="sponsor">1275 4th Street, #371, Santa Rosa, CA 95404</div>
+    <div>© 2026 Limicelia</div>
+  </div>
+</footer>
+
+</body>
+</html>
