@@ -131,52 +131,36 @@
   }
   .about .copy p + p{margin-top:1.3em;}
 
-  /* ---------- THREE PRACTICES ---------- */
-  .practices{padding:0 32px 96px; max-width:1080px; margin:0 auto;}
+  /* ---------- TWO PRACTICES ---------- */
+  .practices-detail{padding:0 32px 96px; max-width:1080px; margin:0 auto;}
   .practices-head{
-    display:flex; align-items:baseline; justify-content:space-between; gap:24px;
-    border-top:1px solid var(--line); padding-top:40px; margin-bottom:48px;
+    border-top:1px solid var(--line); padding-top:40px; margin-bottom:16px; max-width:64ch;
   }
-  .practices-head h2{
-    font-family:var(--serif); font-weight:400; font-size:1.9rem;
-  }
-  .practices-head .note{font-size:.9rem; color:var(--ink-soft); max-width:32ch;}
-  .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
-  @media(max-width:760px){.grid3{grid-template-columns:1fr;}}
-  .card{background:var(--bg); padding:38px 32px;}
-  .card .num{font-family:var(--serif); font-style:italic; color:var(--gold); font-size:1rem; margin-bottom:18px; display:block;}
-  .card h3{font-family:var(--serif); font-weight:500; font-size:1.35rem; margin-bottom:12px;}
-  .card p{color:var(--ink-soft); font-size:.98rem; line-height:1.55;}
-
-  /* ---------- GATE (two paths) ---------- */
-  .gate{background:var(--bg-deep); padding:96px 32px;}
-  .gate-inner{max-width:1080px; margin:0 auto;}
-  .gate-head{max-width:60ch; margin-bottom:52px;}
-  .gate-head .label{
+  .practices-head .label{
     font-size:.78rem; letter-spacing:.14em; text-transform:uppercase;
     color:var(--moss); font-weight:600; margin-bottom:16px; display:block;
   }
-  .gate-head h2{font-family:var(--serif); font-weight:400; font-size:2rem; line-height:1.28; margin-bottom:16px;}
-  .gate-head p{color:var(--ink-soft); font-size:1rem;}
-  .gate-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media(max-width:760px){.gate-grid{grid-template-columns:1fr;}}
-  .gate-card{
-    display:block; text-decoration:none; color:var(--ink);
-    background:var(--bg); border:1px solid var(--line-strong);
-    padding:38px 34px; transition:border-color .2s, transform .2s;
+  .practices-head h2{font-family:var(--serif); font-weight:400; font-size:2rem; line-height:1.28; margin-bottom:16px;}
+  .practices-head .note{color:var(--ink-soft); font-size:1rem;}
+
+  .practice-block{
+    display:grid; grid-template-columns:220px 1fr; gap:56px;
+    padding:48px 0; border-top:1px solid var(--line);
   }
-  .gate-card:hover{border-color:var(--moss); transform:translateY(-2px);}
-  .gate-eyebrow{
+  @media(max-width:760px){.practice-block{grid-template-columns:1fr; gap:20px;}}
+  .practice-meta{position:sticky; top:32px; height:fit-content;}
+  .practice-eyebrow{
     font-size:.76rem; letter-spacing:.12em; text-transform:uppercase;
     color:var(--gold); font-weight:600;
   }
-  .gate-card h3{
-    font-family:var(--serif); font-style:italic; font-weight:500;
-    font-size:1.3rem; margin:14px 0 12px; color:var(--ink-soft);
-  }
-  .gate-card p{font-size:.96rem; color:var(--ink-soft); line-height:1.55; margin-bottom:20px;}
-  .gate-link{font-size:.88rem; font-weight:600; color:var(--moss-dark);}
-  .ts-foot{margin-top:36px; font-size:.85rem; color:var(--ink-soft); font-style:italic; font-family:var(--serif);}
+  .practice-meta h3{font-family:var(--serif); font-weight:500; font-size:1.7rem; margin:12px 0 10px; color:var(--ink);}
+  .practice-tagline{font-family:var(--serif); font-style:italic; color:var(--ink-soft); font-size:1.05rem;}
+
+  .practice-body p{font-family:var(--serif); font-size:1.15rem; line-height:1.62; color:var(--ink); max-width:62ch; margin-bottom:22px;}
+  .practice-list{list-style:none; display:flex; flex-direction:column; gap:14px;}
+  .practice-list li{font-size:.95rem; color:var(--ink-soft); line-height:1.55; padding-left:18px; position:relative;}
+  .practice-list li::before{content:"·"; position:absolute; left:0; color:var(--gold); font-weight:700;}
+  .practice-list strong{color:var(--ink); font-weight:500;}
 
   /* ---------- CTA ---------- */
   .cta{padding:88px 32px; text-align:center;}
@@ -204,7 +188,7 @@
   <div class="wordmark">Limicelia</div>
   <ul class="navlinks">
     <li><a href="#about">Practice</a></li>
-    <li><a href="#taking-shape">Our Practices</a></li>
+    <li><a href="#practices">Our Practices</a></li>
     <li><a href="#contact">Connect</a></li>
   </ul>
 </nav>
@@ -258,52 +242,48 @@
   </div>
 </section>
 
-<section class="practices">
+<section class="practices-detail" id="practices">
   <div class="practices-head">
-    <h2>Three ways in</h2>
-    <div class="note">Each carries its own focus and partners, and each is one part of the same practice.</div>
+    <span class="label">Two Practices, One Studio</span>
+    <h2>Where the work takes shape.</h2>
+    <p class="note">Limicelia holds two practices as a single unit — worked together, not run as separate ventures.</p>
   </div>
-  <div class="grid3">
-    <div class="card">
-      <span class="num">I.</span>
-      <h3>Create</h3>
-      <p>Writing, gatherings, and other forms that give shape to what's shifting — in how work, life, and living are understood.</p>
-    </div>
-    <div class="card">
-      <span class="num">II.</span>
-      <h3>Consult</h3>
-      <p>Coaching, trainings, and engagements with organizations navigating growth, transition, or strain — paced to what a group is ready for.</p>
-    </div>
-    <div class="card">
-      <span class="num">III.</span>
-      <h3>Cultivate</h3>
-      <p>Experiential practice for individual and collective awareness — contemplative, creative, and strategic, held at once.</p>
-    </div>
-  </div>
-</section>
 
-<section class="gate" id="taking-shape">
-  <div class="gate-inner">
-    <div class="gate-head">
-      <span class="label">Two Practices, One Studio</span>
-      <h2>Limicelia holds the frame. The practice lives in two places.</h2>
-      <p>Each of us leads work under the Limicelia umbrella, with its own focus, partners, and funding. Follow either path to see what's currently taking shape.</p>
+  <div class="practice-block">
+    <div class="practice-meta">
+      <span class="practice-eyebrow">Practice One</span>
+      <h3>Understory</h3>
+      <p class="practice-tagline">Weaving what's beneath the surface into shared understanding.</p>
     </div>
-    <div class="gate-grid">
-      <a class="gate-card" href="understory.html">
-        <span class="gate-eyebrow">Path One</span>
-        <h3>Understory</h3>
-        <p>Awareness, dialogue, and collective sensemaking — practice for individuals, teams, and communities.</p>
-        <span class="gate-link">Visit the site &nbsp;→</span>
-      </a>
-      <a class="gate-card" href="fieldwork.html">
-        <span class="gate-eyebrow">Path Two</span>
-        <h3>Fieldwork</h3>
-        <p>Gatherings, convenings, and emerging ventures — practice for communities, technologists, and builders.</p>
-        <span class="gate-link">Visit the site &nbsp;→</span>
-      </a>
+    <div class="practice-body">
+      <p>For over a decade, this began as research — studying how meaning, trust, and communication move differently across cultures inside organizations. That research became a question that outgrew the academy: what actually lets a group understand itself? Understory grew from asking it differently: facilitating spaces — contemplative, creative, and strategic, held together rather than apart — where people and groups learn to sense what's actually happening beneath the surface of how they work.</p>
+      <ul class="practice-list">
+        <li><strong>Practice cohorts</strong> — small, sustained groups who bring a real challenge from their own work and stay with it together over weeks.</li>
+        <li><strong>Open practice sessions</strong> — free, drop-in gatherings for anyone curious what it's like to sense what's actually alive in their work and life.</li>
+        <li><strong>Dialogue and listening circles</strong> — deep-listening formats where a group learns to stay with disagreement rather than resolve it too quickly.</li>
+        <li><strong>Writing circles</strong> — shaping personal or organizational experience into shared language a team can work with together.</li>
+        <li><strong>Collective sensemaking circles</strong> — structured conversation across real differences, long enough for its shape to change.</li>
+        <li><strong>Contemplative &amp; awareness practice</strong> — individual and group practice for presence, attention, and self-understanding.</li>
+      </ul>
     </div>
-    <p class="ts-foot">Not sure which is the right door? Reach out below and we'll point you the right way.</p>
+  </div>
+
+  <div class="practice-block">
+    <div class="practice-meta">
+      <span class="practice-eyebrow">Practice Two</span>
+      <h3>Fieldwork</h3>
+      <p class="practice-tagline">Where communities build what they need.</p>
+    </div>
+    <div class="practice-body">
+      <p>Fieldwork gets early-stage, community-rooted work the room and resources it needs before anyone else will bet on it. Most funding shows up after an idea has already proven itself — we're interested in before, hosting cooperative hackathons and community-led tech events, and offering the first, smallest checks and spaces to people building regenerative ventures.</p>
+      <ul class="practice-list">
+        <li><strong>Seed support for emerging practice</strong> — small, early checks and hosting at the point where an idea needs room more than resources.</li>
+        <li><strong>Entrepreneurial incubation</strong> — light, hands-on support for people building regenerative ventures.</li>
+        <li><strong>Community tech convenings</strong> — cooperative hackathons and build-days where local groups and technologists work on shared problems together.</li>
+        <li><strong>Warm data gatherings</strong> — holding the relationships and context a spreadsheet can't capture.</li>
+        <li><strong>Published writing &amp; media</strong> — essays, audio, and film that carry the work into public conversation.</li>
+      </ul>
+    </div>
   </div>
 </section>
 
