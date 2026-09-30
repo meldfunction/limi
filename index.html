@@ -40,15 +40,18 @@
   @media(max-width:640px){.initiatives-grid{grid-template-columns:1fr;}}
   .initiative-card{
     display:block; text-decoration:none; color:var(--paper);
-    border:1px solid var(--line); padding:24px 22px; border-radius:2px;
+    border:1px solid var(--line); border-top:3px solid var(--accent, var(--line)); padding:24px 22px; border-radius:2px;
     background:rgba(242,234,216,.02); transition:border-color .2s, transform .2s;
   }
-  .initiative-card:hover{border-color:var(--gold); transform:translateY(-2px);}
+  .initiative-card:hover{border-color:var(--accent, var(--gold)); transform:translateY(-2px);}
   .initiative-card h2{font-family:var(--serif); font-weight:500; font-size:1.1rem; margin-bottom:8px;}
   .initiative-card p{font-size:.85rem; line-height:1.55; color:var(--paper); opacity:.7;}
-  .initiative-card .go{display:block; margin-top:14px; font-size:.78rem; font-weight:600; color:var(--gold);}
+  .initiative-card .go{display:block; margin-top:14px; font-size:.78rem; font-weight:600; color:var(--accent, var(--gold));}
+  .initiative-card.c-gold{--accent:var(--gold);}
+  .initiative-card.c-rust{--accent:#C2622F;}
+  .initiative-card.c-sage{--accent:#6E9178;}
   .initiative-card.placeholder{
-    border-style:dashed; opacity:.5; cursor:default;
+    border-top-color:var(--line); border-style:dashed; opacity:.5; cursor:default;
   }
   .initiative-card.placeholder:hover{border-color:var(--line); transform:none;}
   footer{
@@ -68,15 +71,16 @@
   <div class="initiatives">
     <p class="initiatives-label">Initiatives</p>
     <div class="initiatives-grid">
-      <a class="initiative-card" href="https://practice.presentofwork.org">
+      <a class="initiative-card c-gold" href="https://practice.presentofwork.org">
         <h2>The Present of Work</h2>
         <p>Home to our services, approach, and practice work.</p>
         <span class="go">Visit practice.presentofwork.org →</span>
       </a>
-      <div class="initiative-card placeholder">
-        <h2>Yet to be named</h2>
-        <p>A new initiative — details soon.</p>
-      </div>
+      <a class="initiative-card c-rust" href="https://reclaimwork.org">
+        <h2>Reclaim Work</h2>
+        <p>Reimagining human work in the face of extractive economic and technological development.</p>
+        <span class="go">Visit reclaimwork.org →</span>
+      </a>
       <div class="initiative-card placeholder">
         <h2>Yet to be named</h2>
         <p>A new initiative — details soon.</p>
